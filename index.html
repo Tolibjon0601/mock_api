@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Uzum Market</title>
+	</head>
+	<body>
+		<main>
+			<header class="main_header_top">
+				<div class="container">
+					<div class="main_header_block">
+						<div class="main_header_block_left">
+							<h4>Shahar:</h4>
+							<select name="city" id="city">
+								<option value="city">Toshkent</option>
+								<option value="city">Buxoro</option>
+								<option value="city">Namangan</option>
+								<option value="city">Andijon</option>
+							</select>
+							<a href="#">Topshirish punktlari</a>
+						</div>
+						<ul class="main_header_block_right">
+							<li><a class="header_top_title active_title" href="#">Uzumda soting</a></li>
+							<li><a class="header_top_title" href="#">Savol Javoblar</a></li>
+							<li><a class="header_top_title" href="#">Buyurtmalarim</a></li>
+							<li>
+								<select name="language" id="language">
+									<option class="uzbFlag" value="lan">O'zbekcha</option>
+									<option class="rusFlag" value="lan">Russian</option>
+								</select>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</header>
+			<div class="container main_header">
+				<img src="./img/logo.svg" alt="img" />
+				<div class="catalog">
+					<img src="./img/catalog.png" alt="" width="24" height="24" />
+					<p class="catalog_title">Katalog</p>
+				</div>
+				<div class="input">
+					<input type="text" class="search_input" placeholder="Mahsulot va turkum izlash " />
+					<img class="icon_search" id="submit_btn" src="./img/icons8-search.svg" alt="" />
+				</div>
+				<ul class="login">
+					<li class="login_item">
+						<img class="item_img" src="./img/person_icon.svg" alt="img" />
+						<p
+							data-bs-toggle="modal"
+							data-bs-target="#exampleModal"
+							class="header_top_title"
+							class="item_title"
+						>
+							Kirish
+						</p>
+					</li>
+					<li class="login_item">
+						<img class="item_img" src="./img/heart_icon.svg" alt="img" />
+						<p class="item_title">Saralangan</p>
+					</li>
+					<li class="login_item">
+						<img class="item_img" src="./img/store_icon.svg" alt="img" />
+						<p class="item_title">Savat</p>
+					</li>
+				</ul>
+			</div>
+			<section class="hero">
+				<div class="container hero_block">
+					<ul class="hero_block_content">
+						<li class="hero_item">
+							<img
+								class="likviditsiya"
+								src="https://static.uzum.uz/fast_categories/lic.png"
+								width="24"
+								height="24"
+								alt=""
+							/><a href="#" class="hero_item_title">Likvidatsiya</a>
+						</li>
+						<li class="hero_item">
+							<img
+								data-v-78b875fc=""
+								src="https://static.uzum.uz/fast_categories/%D0%A7%D0%B8%D0%BB%D0%BB%D1%8F.png"
+								width="24"
+								height="24"
+								alt=""
+							/><a href="#" class="hero_item_title">Yozgi Savdo</a>
+						</li>
+						<li class="hero_item">
+							<img
+								data-v-78b875fc=""
+								src="https://static.uzum.uz/fast_categories/nasiya_fc.png"
+								width="24"
+								height="24"
+								alt=""
+							/><a href="#" class="hero_item_title">Nasiya</a>
+						</li>
+						<li class="hero_item">
+							<img
+								data-v-78b875fc=""
+								src="https://static.uzum.uz/fast_categories/auto_products.png"
+								width="24"
+								height="24"
+								alt=""
+							/><a href="#" class="hero_item_title">Hammasi avto uchun</a>
+						</li>
+					</ul>
+					<ul class="content_category">
+						<li class="content_category_item">
+							<a class="category_title" href="#">Maishiy Texnika</a>
+						</li>
+						<li class="content_category_item">
+							<a class="category_title" href="#">Elektronika</a>
+						</li>
+						<li class="content_category_item"><a class="category_title" href="#">Kiyim</a></li>
+						<li class="content_category_item">
+							<a class="category_title" href="#">Poyabzallar</a>
+						</li>
+						<li class="content_category_item">
+							<a class="category_title" href="#">Aksesuarlar</a>
+						</li>
+						<li class="content_category_item">
+							<a class="category_title" href="#">Go'zallik va Parvarish</a>
+						</li>
+						<li class="content_category_item"><a class="category_title" href="#">Yana > </a></li>
+					</ul>
+				</div>
+				<div class="container home_page">
+					<a class="home_page_title" href="#">Bosh sahifa /</a>
+					<a class="home_page_title active_home_page" href="#">Barcha toifalar</a>
+				</div>
+			</section>
+			<section class="category">
+				<!-- <div class="slider container">
+	<img class="banner" src="https://images.uzum.uz/cqrs1ivfrr8a72r81ga0/main_page_banner.jpg" alt="img">
+	<img class="banner" src="https://images.uzum.uz/cqrs18ffrr8a72r81g4g/main_page_banner.jpg" alt="img">
+	<img class="banner" src="https://images.uzum.uz/cqhprtnfrr8a72r5sr9g/main_page_banner.jpg" alt="img">
+</div> -->
+
+				<div class="swiper container" style="width: 100%; height: 450px; margin-bottom: 32px">
+					<!-- Additional required wrapper -->
+					<div class="swiper-wrapper">
+						<!-- Slides -->
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqrs1ivfrr8a72r81ga0/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqrs18ffrr8a72r81g4g/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqhprtnfrr8a72r5sr9g/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqhpgisqvsse8letbf0g/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqjlm5vfrr8a72r66q0g/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						<div class="swiper-slide">
+							<img
+								style="width: 100%"
+								class="banner"
+								src="https://images.uzum.uz/cqhprtnfrr8a72r5sr9g/main_page_banner.jpg"
+								alt="img"
+							/>
+						</div>
+						...
+					</div>
+					<!-- If we need pagination -->
+					<div class="swiper-pagination"></div>
+
+					<!-- If we need navigation buttons -->
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+
+					<!-- If we need scrollbar -->
+					<div class="swiper-scrollbar"></div>
+				</div>
+
+				<div class="category_block_content cotainer">
+					<div class="loader">
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+						<div class="wave"></div>
+					</div>
+					<div class="container category_block">
+						<ul class="category_left">
+							<h class="category_left_title">Turkumlar</h>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#">Avtovarlar</a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#">Avtoaksesuarlar</a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Maishiy texnika </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Maishiy kimyoviy moddalar </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Dacha, bog' va tomorqa </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Bolalar tovarlari </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Salomatlik </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Hayvonlar uchun tovarlar </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Kanselyariya tovarlari </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Kitoblar </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Go'zallik va parvarish </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Poyabzallar </a>
+							</li>
+							<li class="category_left_itm"><a class="cat_left_item_link" href="#"> Kiyim </a></li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Oziq-ovqat mahsulotlari </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Sport va hordiq </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Qurilish va taʼmirlash </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Uy-ro'zg'or buyumlari </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Xobbi va ijod </a>
+							</li>
+							<li class="category_left_itm">
+								<a class="cat_left_item_link" href="#"> Elektronika </a>
+							</li>
+						</ul>
+						<div class="category_right">
+							<h1 class="cat_right_title">Chilla bozor</h1>
+							<h2 class="cat_right_subtitle">Termada quyidagi turkumlardan 241,956 ta tovar</h2>
+							<ul class="category_list" id="categories">
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Ayollar aksessuarlari </a>
+								</li>
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Ayollar kiyimi </a>
+								</li>
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Smartfonlar va telefonlar </a>
+								</li>
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Aksessuarlar va ehtiyot qismlari </a>
+								</li>
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Erkaklar aksessuarlari </a>
+								</li>
+								<li class="category_list_item">
+									<a class="cat_list_it_link" href="#"> Erkaklar kiyimi </a>
+								</li>
+								<img class="scroll_btn" src="./img/scroll_btn.svg" alt="svg" />
+							</ul>
+							<div class="popular">
+								<h2 class="popular_title">Avval ko'rsatiladi Ommabop</h2>
+								<img class="rotate_icon" src="./img/rotate_icon.svg" alt="" />
+							</div>
+							<ul class="item_block"></ul>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section>
+				<div class="container banner">
+					<button class="pagination_btn">Yana ko'rsatish 10</button>
+					<img
+						src="https://images.uzum.uz/cqrs18ffrr8a72r81g4g/main_page_banner.jpg"
+						style="padding-bottom: 16px"
+						alt=""
+					/>
+				</div>
+			</section>
+		</main>
+
+		<template>
+			<div class="item_block_item">
+				<img class="item_block_img" src="./img/phone_img.jpg" alt="img" />
+
+				<h2 class="item_title">O'yin smartfoni Tecno Pova 6 Neo 8/128GB/256GB</h2>
+				<div class="rating">
+					<img src="./img/rating_star.svg" alt="star" />
+					<h3 class="rating_title">4.8 (150 sharhlar)</h3>
+				</div>
+				<h3 class="monthly_payment"></h3>
+				<div class="sale_price">
+					<div class="price">
+						<p class="old_price">2 199 000</p>
+						<p class="new_price">1 369 000</p>
+					</div>
+					<div class="icons">
+						<img class="heart_icon" src="./img/heart_icon.svg" alt="" />
+						<img class="shop_btn" src="./img/store_icon.svg" alt="" />
+						<img 	data-bs-toggle="modal"
+						data-bs-target="#exampleModal" class="edit_btn" src="./img/edit_icon.svg" alt="" />
+						<img class="delete_icon" src="./img/delete_icon.svg" alt="" />
+					</div>
+				</div>
+				<div>
+					<!-- <p class="sale">Aksiya</p> -->
+				</div>
+			</div>
+		</template>
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+							<div class="modal-content">
+											<div class="modal-header">
+															<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+															<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+															<img src="" id="edit-img" alt="" />
+															<form id="form-edit">
+																			<input placeholder="img" name="img" class="form-control mt-3 border-black" type="text" />
+																			<input placeholder="title" name="title" class="form-control mt-3 border-black" type="text" />
+																			<input placeholder="real_price" name="real_price" class="form-control mt-3 border-black" type="text" />
+																			<input placeholder="discount_price" name="discount_price" class="form-control mt-3 border-black" type="text" />
+																			<input placeholder="monthly" name="monthly" class="form-control mt-3 border-black" type="text" />
+															</form>
+											</div>
+											<div class="modal-footer">
+															<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+															<button id="edit-btn" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+											</div>
+							</div>
+			</div>
+</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+		<script type="module" src="./js/main.js"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+			integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>
