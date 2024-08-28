@@ -28,11 +28,11 @@ const paginationBtn = findElement(".pagination_btn");
 const elCategories = findElement("#categories");
 const elFormEdit = findElement("#form-edit");
 const elEditBtn = findElement("#edit-btn");
-const BASE_URL = "https://fakestoreapi.com";
+const BASE_URL = "https://66ceca18901aab24841f8da1.mockapi.io/api/";
 let products = [];
 
 async function getProducts() {
-	let res = await fetch(`${BASE_URL}/products`);
+	let res = await fetch(`${BASE_URL}ecomerce`);
 	let data = await res.json();
 	products = data;
 	elLoader.style.display = "none";
@@ -41,30 +41,30 @@ async function getProducts() {
 }
 
 getProducts();
+console.log(`${BASE_URL}`);
+// fetch(`${BASE_URL}categories`)
+// 	.then((res) => res.json())
+// 	.then((json) => {
+// 		// console.log(json)
+// 		elCategories.textContent = "";
 
-fetch(`${BASE_URL}/categories`)
-	.then((res) => res.json())
-	.then((json) => {
-		// console.log(json)
-		elCategories.textContent = "";
-
-		json.forEach((category) => {
-			// console.log(category);
-			const newElement = document.createElement("a");
-			newElement.className = "cat_list_it_link";
-			newElement.innerHTML = category;
-			elCategories.appendChild(newElement);
-		});
-	});
-getProducts();
-elCategories.addEventListener("click", (evt) => {
-	// console.log(evt.target);
-	fetch(`${BASE_URL}products/category/${evt.target.textContent}`)
-		.then((res) => res.json())
-		.then((json) => {
-			renderProducts(json);
-		});
-});
+// 		json.forEach((category) => {
+// 			// console.log(category);
+// 			const newElement = document.createElement("a");
+// 			newElement.className = "cat_list_it_link";
+// 			newElement.innerHTML = category;
+// 			elCategories.appendChild(newElement);
+// 		});
+// 	});
+// getProducts();
+// elCategories.addEventListener("click", (evt) => {
+// 	// console.log(evt.target);
+// 	fetch(`${BASE_URL}products/category/${evt.target.textContent}`)
+// 		.then((res) => res.json())
+// 		.then((json) => {
+// 			renderProducts(json);
+// 		});
+// });
 
 function renderProducts(list = products, parent = elWrapper) {
 	parent.textContent = null;
@@ -78,7 +78,9 @@ function renderProducts(list = products, parent = elWrapper) {
 		const elFavoriteBtn = newTemplate.querySelector(".heart_icon");
 		const elShopBtn = newTemplate.querySelector(".shop_btn");
 		const elEditBtn = newTemplate.querySelector(".edit_btn");
-
+		const elDeleteBtn = newTemplate.querySelector(".delete_icon");
+elDeleteBtn.dataset.id=product.id;
+// console.log(product);
 		elEditBtn.dataset.id = product.id;
 		elFavoriteBtn.dataset.id = product.id;
 		itemImg.src = product.image;
@@ -97,7 +99,7 @@ elWrapper.addEventListener("click", (evt) => {
 	if (evt.target.className.includes("edit_btn")) {
 		const id = evt.target.dataset.id;
 
-		fetch(`${BASE_URL}/products/${id}`)
+		fetch(`${BASE_URL}ecomerce/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -109,7 +111,7 @@ elWrapper.addEventListener("click", (evt) => {
 				elFormEdit.category.value = data.category;
 
 				elEditBtn.addEventListener("click", (evt) => {
-					fetch(`${BASE_URL}/products/${id}`, {
+					fetch(`${BASE_URL}ecomerce/${id}`, {
 						method: "PUT",
 						body: JSON.stringify({
 							title: elFormEdit.title.value,
