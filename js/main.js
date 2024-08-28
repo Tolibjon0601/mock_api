@@ -28,29 +28,21 @@ const paginationBtn = findElement(".pagination_btn");
 const elCategories = findElement("#categories");
 const elFormEdit = findElement("#form-edit");
 const elEditBtn = findElement("#edit-btn");
+const BASE_URL = "https://66ceca18901aab24841f8da1.mockapi.io/api/";
 let products = [];
-// let limit = 8;
-
-// function getProducts() {
-// 	fetch(`https://fakestoreapi.com/products?limit=${limit}`)
-// 		.then((res) => res.json())
-// 		.then((json) => {
-// 			// console.log(json);
-// 			productsx = json;
-// 			elLoader.style.display = "none";
-// 			renderProducts(products);
-// 		});
-// }
 
 async function getProducts() {
-	let res = await fetch(`https://fakestoreapi.com/products`);
+	let res = await fetch(`${BASE_URL}/ecomerce`);
 	let data = await res.json();
 	products = data;
 	elLoader.style.display = "none";
 	renderProducts(data);
+	console.log(data);
 }
 
-fetch("https://fakestoreapi.com/products/categories")
+getProducts();
+
+fetch(`${BASE_URL}/categories`)
 	.then((res) => res.json())
 	.then((json) => {
 		// console.log(json)
@@ -67,7 +59,7 @@ fetch("https://fakestoreapi.com/products/categories")
 getProducts();
 elCategories.addEventListener("click", (evt) => {
 	// console.log(evt.target);
-	fetch(`https://fakestoreapi.com/products/category/${evt.target.textContent}`)
+	fetch(`${BASE_URL}products/category/${evt.target.textContent}`)
 		.then((res) => res.json())
 		.then((json) => {
 			renderProducts(json);
@@ -78,7 +70,6 @@ function renderProducts(list = products, parent = elWrapper) {
 	parent.textContent = null;
 	list.forEach((product) => {
 		const newTemplate = elProductTemplate.content.cloneNode(true);
-
 		const itemImg = newTemplate.querySelector(".item_block_img");
 		const elTitle = newTemplate.querySelector(".item_title");
 		const elMonthlyPayment = newTemplate.querySelector(".monthly_payment");
@@ -100,19 +91,13 @@ function renderProducts(list = products, parent = elWrapper) {
 	});
 }
 
-
 // Edit Btn
-
-
-
-
-
 
 elWrapper.addEventListener("click", (evt) => {
 	if (evt.target.className.includes("edit_btn")) {
 		const id = evt.target.dataset.id;
 
-		fetch(`https://fakestoreapi.com/products/${id}`)
+		fetch(`${BASE_URL}/products/${id}`)
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
@@ -124,7 +109,7 @@ elWrapper.addEventListener("click", (evt) => {
 				elFormEdit.category.value = data.category;
 
 				elEditBtn.addEventListener("click", (evt) => {
-					fetch(`https://fakestoreapi.com/products/${id}`, {
+					fetch(`${BASE_URL}/products/${id}`, {
 						method: "PUT",
 						body: JSON.stringify({
 							title: elFormEdit.title.value,
@@ -134,13 +119,12 @@ elWrapper.addEventListener("click", (evt) => {
 							category: elFormEdit.category.value,
 						}),
 					})
-					.then((res) => res.json())
-					.then((json) => console.log(json));
+						.then((res) => res.json())
+						.then((json) => console.log(json));
 				});
 			});
 	}
 });
-
 
 paginationBtn.addEventListener("click", () => {
 	limit += 10;
