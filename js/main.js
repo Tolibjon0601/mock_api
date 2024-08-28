@@ -26,19 +26,28 @@ const elProductTemplate = findElement("template");
 const elLoader = findElement(".loader");
 const paginationBtn = findElement(".pagination_btn");
 const elCategories = findElement("#categories");
-
+const elFormEdit = findElement("#form-edit");
+const elEditBtn = findElement("#edit-btn");
 let products = [];
-let limit = 8;
+// let limit = 8;
 
-function getProducts() {
-	fetch(`https://fakestoreapi.com/products?limit=${limit}`)
-		.then((res) => res.json())
-		.then((json) => {
-			// console.log(json);
-			products = json;
-			elLoader.style.display = "none";
-			renderProducts(products);
-		});
+// function getProducts() {
+// 	fetch(`https://fakestoreapi.com/products?limit=${limit}`)
+// 		.then((res) => res.json())
+// 		.then((json) => {
+// 			// console.log(json);
+// 			productsx = json;
+// 			elLoader.style.display = "none";
+// 			renderProducts(products);
+// 		});
+// }
+
+async function getProducts() {
+	let res = await fetch(`https://fakestoreapi.com/products`);
+	let data = await res.json();
+	products = data;
+	elLoader.style.display = "none";
+	renderProducts(data);
 }
 
 fetch("https://fakestoreapi.com/products/categories")
@@ -92,13 +101,47 @@ function renderProducts(list = products, parent = elWrapper) {
 }
 
 
+// Edit Btn
+
+
+
+
+
 
 elWrapper.addEventListener("click", (evt) => {
 	if (evt.target.className.includes("edit_btn")) {
 		const id = evt.target.dataset.id;
-		console.log(id);
+
+		fetch(`https://fakestoreapi.com/products/${id}`)
+			.then((res) => res.json())
+			.then((data) => {
+				console.log(data);
+
+				elFormEdit.img.value = data.image;
+				elFormEdit.title.value = data.title;
+				elFormEdit.description.value = data.description;
+				elFormEdit.real_price.value = data.price;
+				elFormEdit.category.value = data.category;
+
+				elEditBtn.addEventListener("click", (evt) => {
+					fetch(`https://fakestoreapi.com/products/${id}`, {
+						method: "PUT",
+						body: JSON.stringify({
+							title: elFormEdit.title.value,
+							price: elFormEdit.real_price.value,
+							description: elFormEdit.description.value,
+							image: elFormEdit.img.value,
+							category: elFormEdit.category.value,
+						}),
+					})
+					.then((res) => res.json())
+					.then((json) => console.log(json));
+				});
+			});
 	}
 });
+
+
 paginationBtn.addEventListener("click", () => {
 	limit += 10;
 	elWrapper.textContent = "";
