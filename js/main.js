@@ -28,11 +28,11 @@ const paginationBtn = findElement(".pagination_btn");
 const elCategories = findElement("#categories");
 const elFormEdit = findElement("#form-edit");
 const elEditBtn = findElement("#edit-btn");
-const BASE_URL = "https://66ceca18901aab24841f8da1.mockapi.io/api/";
+const BASE_URL = "https://fakestoreapi.com";
 let products = [];
 
 async function getProducts() {
-	let res = await fetch(`${BASE_URL}/ecomerce`);
+	let res = await fetch(`${BASE_URL}/products`);
 	let data = await res.json();
 	products = data;
 	elLoader.style.display = "none";
